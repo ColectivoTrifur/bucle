@@ -3,12 +3,12 @@ from cvzone.HandTrackingModule import HandDetector
 
 class VideoHandDetector:
     def __init__(self, *, video_name, video_path, output_path):
-        self.video_name = video_name
         self.cap = cv2.VideoCapture(video_path)
         self.detector = HandDetector(detectionCon=0.8)
         self.cap.set(3, 1280) #TODO: ver de sacar este número de forma dinámica
         self.cap.set(4, 720) #TODO: ver de sacar este número de forma dinámica
         self.output_path = output_path
+        self.video_name = video_name
 
 
     def run(self):
