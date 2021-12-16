@@ -4,9 +4,6 @@ Bucle
 
 Exploraciones para armar bucle, un instrumento audiovisual gestual.
 
-# Correr
-
-Correr haciendo `python3 run.py`
 
 # Contenido
 
@@ -20,7 +17,13 @@ Correr haciendo `python3 run.py`
 
 * current_outputs tiene los resultados de analizar la raw data.
 
+# Correr
 
+Correr procesadores haciendo `python3 bucle/run.py`
+
+Correr visualizador haciendo `python3 bucle/visualizer/with_glfw.py`
+
+# Instalar
 
 ```
 python3 setup.py install
