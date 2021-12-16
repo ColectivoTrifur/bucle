@@ -1,4 +1,6 @@
-  
+from sys import path as pylib
+import os
+pylib += os.path.abspath('..')
 # -*- coding: utf-8 -*-
 #pip install imgui[full]
 #pip install glfw
@@ -11,6 +13,9 @@ from imgui.integrations.glfw import GlfwRenderer
 
 import ctypes
 from mpv import MPV, MpvRenderContext, OpenGlCbGetProcAddrFn
+
+import os
+from bucle import constants
 
 class VideoPlayer:
 
@@ -43,6 +48,7 @@ class VideoPlayer:
     self.loop='inf'
 
     self.mpv = MPV(log_handler=print, loglevel='debug')
+    self.mpv.loop = 'inf'
 
     def get_process_address(_, name):
       print(name)
@@ -143,11 +149,13 @@ def main():
 
     videoWindows     = []
     
-    def dropFile(window,files):
-      for file in files:
-        videoWindows.append(VideoPlayer(file))
+    #def dropFile(window,files):
+    #  for file in files:
+    #    videoWindows.append(VideoPlayer(file))
 
-    glfw.set_drop_callback(window, dropFile)
+    #glfw.set_drop_callback(window, dropFile)
+    for video in os.listdir(constants.RAW_DIR):
+        videoWindows.append(VideoPlayer(constants.RAW_DIR+video))
 
     while not glfw.window_should_close(window):
 
@@ -165,8 +173,8 @@ def main():
           winw,winh = glfw.get_window_size(window)
           imgui.core.set_next_window_size(winw-20,10)
 
-          imgui.begin("##Message", True, flags=imgui.WINDOW_NO_SCROLLBAR|imgui.WINDOW_NO_RESIZE|imgui.WINDOW_NO_TITLE_BAR|imgui.WINDOW_NO_MOVE )
-          imgui.text("Drop one or more video files onto this window to play")
+          #imgui.begin("##Message", True, flags=imgui.WINDOW_NO_SCROLLBAR|imgui.WINDOW_NO_RESIZE|imgui.WINDOW_NO_TITLE_BAR|imgui.WINDOW_NO_MOVE )
+          #imgui.text("Drop one or more video files onto this window to play")
           imgui.end()
 
         gl.glClearColor(0., 0., 0., 1.)

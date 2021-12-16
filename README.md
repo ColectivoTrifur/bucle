@@ -23,6 +23,7 @@ Correr haciendo `python3 run.py`
 
 
 ```
+python3 setup.py install
 pip install PyOpenGL PyOpenGL_accelerate
 pip install PyQt5
 pip install imgui[full]
