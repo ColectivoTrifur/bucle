@@ -11,7 +11,7 @@ Por ahora la parte python es una CLI.
 ```
 git clone <repo url>
 cd bucle
-pip install PyOpenGL PyOpenGL_accelerate PyQt5 imgui[full] glfw python-mpv
+pip install PyOpenGL PyOpenGL_accelerate PyQt5 imgui[full] glfw python-mpv tqdm
 pip install --editable .
 ```
 
