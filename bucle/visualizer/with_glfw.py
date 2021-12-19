@@ -154,8 +154,10 @@ def main():
     #    videoWindows.append(VideoPlayer(file))
 
     #glfw.set_drop_callback(window, dropFile)
-    for video in os.listdir(constants.RAW_DIR):
-        videoWindows.append(VideoPlayer(constants.RAW_DIR+video))
+    for video in os.listdir("./"):
+        if "output" in video and "mp4" in video:
+            print(video)
+            videoWindows.append(VideoPlayer("./"+video))
 
     while not glfw.window_should_close(window):
 

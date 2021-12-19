@@ -20,6 +20,9 @@ def generate_videos():
         print(command)
         os.system(command)
 
+def visualize():
+    os.system("python3 bucle/visualizer/with_glfw.py")
+
 
 # en un futuro esto será un worker
 @click.command()
@@ -42,6 +45,7 @@ def process():
     click.secho("[*] Generating output videos",fg='yellow', bold=True)
     generate_videos()
     click.secho("[*] Finished all videos\n\n",fg='green', bold=True)
+    visualize()
 
 if __name__ == '__main__':
     process()
