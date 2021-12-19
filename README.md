@@ -35,3 +35,12 @@ pip install imgui[full]
 pip install glfw
 pip install python-mpv
 ```
+
+
+# Comandos ùtiles
+pasar de video a jpgs
+ffmpeg -i squares.mp4 -vf fps=30 %d.jpg
+
+pasar de imagenes a video
+cat 1024_{1..387}.jpg | ffmpeg -framerate 30 -f image2pipe -i - ./output.mp4
+

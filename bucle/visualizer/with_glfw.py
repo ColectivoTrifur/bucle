@@ -15,7 +15,7 @@ import ctypes
 from mpv import MPV, MpvRenderContext, OpenGlCbGetProcAddrFn
 
 import os
-from bucle import constants
+from bucle.scripts import constants
 
 class VideoPlayer:
 

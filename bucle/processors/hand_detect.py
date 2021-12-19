@@ -1,5 +1,7 @@
 import cv2
 from cvzone.HandTrackingModule import HandDetector
+import os
+from PIL import Image
 
 class VideoHandDetector:
     def __init__(self, *, video_name, video_path, output_path):
@@ -9,10 +11,14 @@ class VideoHandDetector:
         self.cap.set(4, 720) #TODO: ver de sacar este número de forma dinámica
         self.output_path = output_path
         self.video_name = video_name
+        self.out_video_path = self.output_path+self.video_name+'_hand/'
 
 
     def run(self):
+        video_output=[]
         print(">Beginning work!")
+        if not os.path.exists(self.out_video_path):
+            os.makedirs(self.out_video_path)
         distance_path = self.output_path+self.video_name+'_distance.csv'
         cursor_path = self.output_path+self.video_name+'_cursor.csv'
 
@@ -26,6 +32,15 @@ class VideoHandDetector:
             except:
                 #TODO:
                 #detectar errores. dejar escrito en logs.
+                print("por escribir el video")
+                i = 0
+                for frame in video_output:
+                    print(i)
+                    im = Image.fromarray(frame)
+                    path = self.out_video_path+'hand_'+self.video_name+'_'+str(i)+'.png'
+                    print(path)
+                    im.save(path)
+                    i+=1
                 print(">Finished work!")
                 break
             lmList, _ = self.detector.findPosition(img)
@@ -39,6 +54,7 @@ class VideoHandDetector:
                 with open(cursor_path,'a') as file:
                     file.write(str(cursor[0])+','+str(cursor[1])+"\n")
             cv2.imshow("Image", img)
+            video_output.append(img)
             #TODO:
             #acumular img y en el break escribir a un archivo en OUTPUT_PATH
             cv2.waitKey(1)
