@@ -28,7 +28,7 @@ class VideoHandDetector:
             im.save(path)
             i+=1
         print(">Finished work!")
-        return len(frames)
+        return
 
     def run(self):
         frames=[]
@@ -46,9 +46,9 @@ class VideoHandDetector:
             except:
                 #TODO:
                 #detectar errores. dejar escrito en logs.
-                num_frames = self.write_output(frames)
+                self.write_output(frames)
                 cv2.destroyAllWindows()
-                return num_frames
+                return
             lmList, _ = self.detector.findPosition(img)
             if lmList:
 

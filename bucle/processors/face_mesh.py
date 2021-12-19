@@ -28,7 +28,6 @@ class VideoFaceMesh:
             im.save(path)
             i+=1
         print(">Finished work!")
-        return video_identifier,len(frames)
 
     def run(self):
         print(">Beginning work!")
@@ -47,9 +46,9 @@ class VideoFaceMesh:
             except:
                 #TODO:
                 #detectar errores. dejar escrito en logs.
-                video_name,num_frames = self.write_output(frames)
+                self.write_output(frames)
                 cv2.destroyAllWindows()
-                return video_name,num_frames
+                return
             if faces:
                 # bboxInfo => "id","bbox","score","center"
                 print(dir(faces))

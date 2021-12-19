@@ -28,7 +28,7 @@ class VideoFaceDetector:
             im.save(path)
             i+=1
         print(">Finished work!")
-        return len(frames)
+        return
 
     def run(self):
         print(">Beginning work!")
@@ -44,9 +44,9 @@ class VideoFaceDetector:
             try:
                 img,bboxs = self.detector.findFaces(img)
             except:
-                num_frames = self.write_output(frames)
+                self.write_output(frames)
                 cv2.destroyAllWindows()
-                return num_frames
+                return
             if bboxs:
                 # bboxInfo => "id","bbox","score","center"
                 center = bboxs[0]["center"]
