@@ -10,19 +10,25 @@ class VideoHandDetector:
         self.detector = HandDetector(detectionCon=0.8)
         self.output_path = output_path
         self.video_name = video_name
-        self.out_video_path = self.output_path+self.video_name+'_hand/'
+        self.out_video_name = "hand_"+self.video_name
+        self.out_video_path = self.output_path+self.out_video_name+'/'
 
     def write_output(self, frames):
         print("por escribir el video")
         if not os.path.exists(self.out_video_path):
             os.makedirs(self.out_video_path)
         i = 0
+        video_identifier = self.out_video_path+'hand_'+self.video_name+'_'
         for frame in tqdm(frames):
+            digits = len(str(len(frames)))
             im = Image.fromarray(frame)
-            path = self.out_video_path+'hand_'+self.video_name+'_'+str(i)+'.png'
+            frame_id=str(i)
+            frame_id = frame_id.zfill(digits) 
+            path = video_identifier +frame_id+'.png'
             im.save(path)
             i+=1
         print(">Finished work!")
+        return len(frames)
 
     def run(self):
         frames=[]
@@ -40,8 +46,9 @@ class VideoHandDetector:
             except:
                 #TODO:
                 #detectar errores. dejar escrito en logs.
-                self.write_output(frames)
-                break
+                num_frames = self.write_output(frames)
+                cv2.destroyAllWindows()
+                return num_frames
             lmList, _ = self.detector.findPosition(img)
             if lmList:
 
