@@ -4,6 +4,25 @@ Bucle
 
 Exploraciones para armar bucle, un instrumento audiovisual gestual.
 
+Por ahora la parte python es una CLI.
+
+# Instalar
+
+```
+git clone <repo url>
+cd bucle
+pip install PyOpenGL PyOpenGL_accelerate PyQt5 imgui[full] glfw python-mpv
+pip install --editable .
+```
+
+# Correr
+
+La parte python es un CLI. Una vez instalado, se puede acceder usando el comando
+
+`bucle`
+
+Correr visualizador haciendo `python3 bucle/visualizer/with_glfw.py`
+
 
 # Contenido
 
@@ -18,23 +37,6 @@ Dentro de processors está su output dentro de un directorio del mismo nombre.
 * bucle/videos tienen ejemplos de raw data.
 
 * bucle/current_outputs tiene los resultados de analizar la raw data.
-
-# Correr
-
-Correr procesadores haciendo `python3 bucle/run.py`
-
-Correr visualizador haciendo `python3 bucle/visualizer/with_glfw.py`
-
-# Instalar
-
-```
-python3 setup.py install
-pip install PyOpenGL PyOpenGL_accelerate
-pip install PyQt5
-pip install imgui[full]
-pip install glfw
-pip install python-mpv
-```
 
 
 # Comandos ùtiles
