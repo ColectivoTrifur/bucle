@@ -24,7 +24,7 @@ La parte python es un CLI. Una vez instalado, se puede acceder usando el comando
 
 `bucle`
 
-Este comando corre los procesadores sobre los videos que están en la carpeta `bucle/videos/`, escribe la data cruda del análisis en `bucle/current_outputs/` y escribe donde estás paradx los videos de los resultados.
+Este comando corre los procesadores sobre los videos que están en la carpeta `bucle/videos/`, escribe la data cruda del análisis en `bucle/current_outputs/` y escribe donde estás paradx los videos de los resultados. Después abre el visualizador y muestra en loop todos los videos creados.
 
 
 Correr visualizador haciendo `python3 bucle/visualizer/with_glfw.py`
