@@ -8,18 +8,24 @@ Por ahora la parte python es una CLI.
 
 # Instalar
 
+[Instalar ffmpeg](https://www.ffmpeg.org/download.html)
+
 ```
-git clone <repo url>
+git clone git@github.com:ColectivoTrifur/bucle.git
 cd bucle
 pip install PyOpenGL PyOpenGL_accelerate PyQt5 imgui[full] glfw python-mpv tqdm
 pip install --editable .
 ```
+
 
 # Correr
 
 La parte python es un CLI. Una vez instalado, se puede acceder usando el comando
 
 `bucle`
+
+Este comando corre los procesadores sobre los videos que están en la carpeta `bucle/videos/`, escribe la data cruda del análisis en `bucle/current_outputs/` y escribe donde estás paradx los videos de los resultados.
+
 
 Correr visualizador haciendo `python3 bucle/visualizer/with_glfw.py`
 
